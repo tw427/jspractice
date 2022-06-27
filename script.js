@@ -1,10 +1,15 @@
-let schedule = {};
+let menu = {
+    width: 200,
+    height: 300,
+    title: 'My Menu',
+}
 
-schedule['8:30'] = 'get up';
-
-function isEmpty(obj) {
-        for (let key in obj) {
-                return false;
-        } 
-    return true;
+function multiplyNumeric(menu) {
+    for (let key in menu) {
+        if (typeof(menu[key]) == 'number') {
+            // learned the importance that you must assign the value to the result of the equation
+            // so we apply menu[key] = menu[key] * 2
+            menu[key] *= 2;
+        }
+    }
 }

@@ -103,3 +103,39 @@
 
 //     return fibStart[fib - 1];
 // };
+
+// -----------------------------------
+// Find the oldest with JavaScript object / array methods
+// -----------------------------------
+
+// const people = [
+//     {
+//       name: "Carly",
+//       yearOfBirth: 1942,
+//       yearOfDeath: 1970,
+//     },
+//     {
+//       name: "Ray",
+//       yearOfBirth: 1962,
+//       yearOfDeath: 2011,
+//     },
+//     {
+//       name: "Jane",
+//       yearOfBirth: 1912,
+//       yearOfDeath: 1941,
+//     },
+//   ];
+
+
+// const findTheOldest = function(people) {
+//     let currYear = new Date().getFullYear;
+
+//     const yearsLived = people.reduce((total, current) => {
+//             total = current.yearOfDeath - current.yearOfBirth;
+//             current.age = total;
+//     }, 0)
+
+//     const oldest = people.sort((a, b) => a.age > b.age ? 1 : -1);
+
+//     console.log(oldest, oldest[oldest.length - 1]);
+// };

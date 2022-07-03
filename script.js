@@ -83,3 +83,23 @@
 
     
 // };
+
+// -----------------------------------
+// Fibonacci exercise
+// -----------------------------------
+
+// const fibonacci = function(fib) {
+//     let fibStart = [1, 1];
+//     let sum;
+
+//     if (fib < 0) {
+//         return "OOPS";
+//     }
+
+//     for (i = 0; fib > i; i++) {
+//         sum = fibStart[i] + fibStart[i + 1];
+//         fibStart.push(sum);
+//     }
+
+//     return fibStart[fib - 1];
+// };

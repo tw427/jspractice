@@ -1,17 +1,22 @@
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = () => {
-    if (read == 'read') {
-      return 'I have read it!';
-    } else if (read == 'not read') {
-      return 'not read yet';
-    } else {
-      return 'don\'t know if I have read it'
-    }
-  }
-  this.info = () => `${this.title} by ${this.author}, ${this.pages} pages, ${this.read(read)}`;
-}
+// Factory Function example
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read');
+// const personFactory = (name, age) => {
+//     const sayHello = () => console.log('Hello!');
+//     return { name, age, sayHello};
+// };
+
+// const jeff = personFactory('jeff', 27);
+
+var myObject = {};
+myObject.myMethod = function () {
+  console.log(this); // this = Object { myObject }
+};
+
+var nav = document.querySelector('.nav'); // <nav class="nav">
+var toggleNav = function () {
+  console.log(this); // this = <nav> element
+};
+
+for (var i = 0; i < links.length; i++) {
+  (function () { console.log(this); }).call(links[i]);
+}

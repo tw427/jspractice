@@ -1,25 +1,23 @@
-let myModule = (function() {
-  'use strict';
+const Formatter = (function(doc) {
+  const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
+  
 
-  let _privateProperty = 'Hello World';
-  let publicProperty = 'I am a public property';
-
-  function _privateMethod() {
-    console.log(_privateProperty);
+  const makeUppercase = (text) => {
+    log("Making Uppercase");
+    return text.toUpperCase();
   }
 
-  function publicMethod() {
-    _privateMethod();
+  const writeToDOM = (selector, message) => {
+    if (!!doc && "querySelector" in doc) {
+      doc.querySelector(selector).innerHTML = message;
+    }
   }
 
   return {
-    publicMethod: publicMethod,
-    publicProperty: publicProperty
-  };
+    makeUppercase,
+    writeToDOM,
+  }
 
-})();
+})(document);
 
-myModule.publicMethod();
-console.log(myModule.publicProperty);
-console.log(myModule._privateProperty);
-myModule._privateMethod();
+Formatter.writeToDOM("#target", "Hi There");

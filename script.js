@@ -1,22 +1,25 @@
-// Factory Function example
+let myModule = (function() {
+  'use strict';
 
-// const personFactory = (name, age) => {
-//     const sayHello = () => console.log('Hello!');
-//     return { name, age, sayHello};
-// };
+  let _privateProperty = 'Hello World';
+  let publicProperty = 'I am a public property';
 
-// const jeff = personFactory('jeff', 27);
+  function _privateMethod() {
+    console.log(_privateProperty);
+  }
 
-var myObject = {};
-myObject.myMethod = function () {
-  console.log(this); // this = Object { myObject }
-};
+  function publicMethod() {
+    _privateMethod();
+  }
 
-var nav = document.querySelector('.nav'); // <nav class="nav">
-var toggleNav = function () {
-  console.log(this); // this = <nav> element
-};
+  return {
+    publicMethod: publicMethod,
+    publicProperty: publicProperty
+  };
 
-for (var i = 0; i < links.length; i++) {
-  (function () { console.log(this); }).call(links[i]);
-}
+})();
+
+myModule.publicMethod();
+console.log(myModule.publicProperty);
+console.log(myModule._privateProperty);
+myModule._privateMethod();

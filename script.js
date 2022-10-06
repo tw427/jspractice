@@ -1,10 +1,16 @@
-const personFactory = (name, age) => {
-  const sayHello = () => console.log("Hello!");
-  return {name, age, sayHello};
-};
+const Person = (name) => {
+  const sayName = () => console.log(`my name is ${name}`);
+  return {sayName};
+}
 
-const jeff = personFactory('jeff', 27);
+const Nerd = (name) => {
+  const {sayName} = Person(name);
+  const doSomethingNerdy = () => console.log('Nerdy stuff');
+  return {sayName, doSomethingNerdy};
+}
 
-console.log('jeff', 27);
+const jeff = Nerd('jeff');
 
-jeff.sayHello();
+jeff.sayName();
+
+jeff.doSomethingNerdy();

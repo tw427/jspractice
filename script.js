@@ -1,23 +1,10 @@
-const Formatter = (function(doc) {
-  const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
-  
+const personFactory = (name, age) => {
+  const sayHello = () => console.log("Hello!");
+  return {name, age, sayHello};
+};
 
-  const makeUppercase = (text) => {
-    log("Making Uppercase");
-    return text.toUpperCase();
-  }
+const jeff = personFactory('jeff', 27);
 
-  const writeToDOM = (selector, message) => {
-    if (!!doc && "querySelector" in doc) {
-      doc.querySelector(selector).innerHTML = message;
-    }
-  }
+console.log('jeff', 27);
 
-  return {
-    makeUppercase,
-    writeToDOM,
-  }
-
-})(document);
-
-Formatter.writeToDOM("#target", "Hi There");
+jeff.sayHello();

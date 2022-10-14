@@ -1,13 +1,41 @@
-function User(name, birthday) {
-  this.name = name,
-  this.birthday = birthday,
+// Practice with converting a class written in functional style in ' class ' syntax
+// via https://javascript.info/class
+class Clock {
 
-  Object.defineProperty(this, "age", {
-    get() {
-      let currentYear = new Date().getFullYear();
-      return currentYear - this.birthday.getFullYear();
-    }
-  })
+  constructor({template}) {
+    this.template = template;
+  }
+
+  render() {
+    let date = new Date();
+
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
+
+    let output = this.template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
+
+    console.log(output);
+  }
+
+  stop() {
+    clearInterval(this.timer);
+  }
+
+  start() {
+    this.render();
+    // Pass a wrapper function to fix "losing this"
+    this.timer = setInterval(() => this.render(), 1000);
+  }
 }
 
-let tony = new User("Tony", new Date(1998, 1, 26));
+let clock = new Clock({template: 'h:m:s'});
+clock.start(); // Live ticking clock within console

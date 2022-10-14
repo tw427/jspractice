@@ -1,16 +1,16 @@
-const Person = (name) => {
-  const sayName = () => console.log(`my name is ${name}`);
-  return {sayName};
+let user = {
+  name: "Tony",
+  surname: "W",
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(" ");
+  }
 }
 
-const Nerd = (name) => {
-  const {sayName} = Person(name);
-  const doSomethingNerdy = () => console.log('Nerdy stuff');
-  return {sayName, doSomethingNerdy};
-}
-
-const jeff = Nerd('jeff');
-
-jeff.sayName();
-
-jeff.doSomethingNerdy();
+user.fullName = "Katie G.";
+console.log(user.name);
+console.log(user.surname);

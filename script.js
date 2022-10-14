@@ -1,16 +1,19 @@
 let user = {
-  name: "Tony",
-  surname: "W",
-
-  get fullName() {
-    return `${this.name} ${this.surname}`;
+  get name() {
+    return this._name;
   },
 
-  set fullName(value) {
-    [this.name, this.surname] = value.split(" ");
+  set name(value) {
+    if (value.length < 4) {
+      alert("Name is too short, need at least 4 characters");
+      return;
+    }
+    this._name = value;
   }
-}
+};
 
-user.fullName = "Katie G.";
-console.log(user.name);
-console.log(user.surname);
+user.name = "Tony";
+alert(user.name) // Tony | The input meets the requirements!
+
+user.name = "Kat";
+// alert(user.name) will meet our if condition and alert the user that the name is too short.

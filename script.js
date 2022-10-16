@@ -1,18 +1,28 @@
-class Dog {
-  constructor(name) {
-    this.name = name;
-  }
+const barker = (state) => ({
+  bark: () => console.log('Woof, I am ' + state.name)
+})
 
-  speak() {
-    console.log(`${this.name} makes a noise`);
+const driver = (state) => ({
+  drive: () => state.position = state.speed + state.position
+})
+
+const killer = (state) => ({
+  kill: () => console.log(`I ${state.name} will murder you!`)
+})
+
+const murderRobotDog = (name) => {
+  let state = {
+    name,
+    speed: 100,
+    position: 0,
   }
+  return Object.assign (
+    {},
+    barker(state),
+    driver(state),
+    killer(state),
+  )
 }
 
-class Wolf extends Dog {
-  speak() {
-    super.speak();
-    console.log(`${this.name} howls`);
-  }
-}
-
-const a = new Wolf('April');
+const april = murderRobotDog('April');
+const kelly = murderRobotDog('Kelly');

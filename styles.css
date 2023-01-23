@@ -11,7 +11,7 @@ body {
     background-size: contain;
     background-color: #ffa8B6;
 }
-
+/* 
 #img-container {
     display: flex;
     justify-content: center;
@@ -53,4 +53,4 @@ input[type="text"] {
 
 input[type="text"]:focus {
     outline: none;
-}
+} */

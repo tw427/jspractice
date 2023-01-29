@@ -12,19 +12,25 @@ let list = {
     }
   };
 
-// function printList(list) {
-//     while (list) {
-//         console.log(list);
-//         list = list["next"];
-//     }
-//     return;
-// }
+function printList(list) {
+    let arr = [];
+    let tmp = list;
+
+    while (tmp) {
+        arr.push(tmp.value);
+        tmp = tmp["next"];
+    }
+
+    for (let i = arr.length -1; i >= 0; i--) {
+        console.log(arr[i]);
+    }
+}
 
 function printList(list) {
-
-    console.log(list);
 
     if (list.next) {
         printList(list.next);
     }
+
+    console.log(list);
 }

@@ -1,3 +1,8 @@
+let allAreLessThanSeven = all([1,2,9], function(num){
+	return num < 7;
+});
+
+
 function all(arr, callback) {
     let copy = arr.slice();
 
